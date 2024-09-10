@@ -1,0 +1,14 @@
+D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\ManipulateLines\bin\Debug\net6.0\ManipulateLines.exe
+D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\ManipulateLines\bin\Debug\net6.0\ManipulateLines.deps.json
+D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\ManipulateLines\bin\Debug\net6.0\ManipulateLines.runtimeconfig.json
+D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\ManipulateLines\bin\Debug\net6.0\ManipulateLines.dll
+D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\ManipulateLines\bin\Debug\net6.0\ManipulateLines.pdb
+D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\ManipulateLines\obj\Debug\net6.0\ManipulateLines.GeneratedMSBuildEditorConfig.editorconfig
+D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\ManipulateLines\obj\Debug\net6.0\ManipulateLines.AssemblyInfoInputs.cache
+D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\ManipulateLines\obj\Debug\net6.0\ManipulateLines.AssemblyInfo.cs
+D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\ManipulateLines\obj\Debug\net6.0\ManipulateLines.csproj.CoreCompileInputs.cache
+D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\ManipulateLines\obj\Debug\net6.0\ManipulateLines.dll
+D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\ManipulateLines\obj\Debug\net6.0\refint\ManipulateLines.dll
+D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\ManipulateLines\obj\Debug\net6.0\ManipulateLines.pdb
+D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\ManipulateLines\obj\Debug\net6.0\ManipulateLines.genruntimeconfig.cache
+D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\ManipulateLines\obj\Debug\net6.0\ref\ManipulateLines.dll

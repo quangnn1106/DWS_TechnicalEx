@@ -1,0 +1,15 @@
+C:\Users\quang.nguyen\source\repos\MovieManagement\Infrastructure.Movie\bin\Debug\net6.0\Infrastructure.Movie.deps.json
+C:\Users\quang.nguyen\source\repos\MovieManagement\Infrastructure.Movie\bin\Debug\net6.0\Infrastructure.Movie.dll
+C:\Users\quang.nguyen\source\repos\MovieManagement\Infrastructure.Movie\bin\Debug\net6.0\Infrastructure.Movie.pdb
+C:\Users\quang.nguyen\source\repos\MovieManagement\Infrastructure.Movie\bin\Debug\net6.0\SharedDomain.dll
+C:\Users\quang.nguyen\source\repos\MovieManagement\Infrastructure.Movie\bin\Debug\net6.0\SharedDomain.pdb
+C:\Users\quang.nguyen\source\repos\MovieManagement\Infrastructure.Movie\obj\Debug\net6.0\Infrastructure.Movie.csproj.AssemblyReference.cache
+C:\Users\quang.nguyen\source\repos\MovieManagement\Infrastructure.Movie\obj\Debug\net6.0\Infrastructure.Movie.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\quang.nguyen\source\repos\MovieManagement\Infrastructure.Movie\obj\Debug\net6.0\Infrastructure.Movie.AssemblyInfoInputs.cache
+C:\Users\quang.nguyen\source\repos\MovieManagement\Infrastructure.Movie\obj\Debug\net6.0\Infrastructure.Movie.AssemblyInfo.cs
+C:\Users\quang.nguyen\source\repos\MovieManagement\Infrastructure.Movie\obj\Debug\net6.0\Infrastructure.Movie.csproj.CoreCompileInputs.cache
+C:\Users\quang.nguyen\source\repos\MovieManagement\Infrastructure.Movie\obj\Debug\net6.0\Infrastr.E7F3BA72.Up2Date
+C:\Users\quang.nguyen\source\repos\MovieManagement\Infrastructure.Movie\obj\Debug\net6.0\Infrastructure.Movie.dll
+C:\Users\quang.nguyen\source\repos\MovieManagement\Infrastructure.Movie\obj\Debug\net6.0\refint\Infrastructure.Movie.dll
+C:\Users\quang.nguyen\source\repos\MovieManagement\Infrastructure.Movie\obj\Debug\net6.0\Infrastructure.Movie.pdb
+C:\Users\quang.nguyen\source\repos\MovieManagement\Infrastructure.Movie\obj\Debug\net6.0\ref\Infrastructure.Movie.dll

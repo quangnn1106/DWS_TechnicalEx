@@ -1,0 +1,11 @@
+D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\Common\bin\Debug\net6.0\Common.deps.json
+D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\Common\bin\Debug\net6.0\Common.dll
+D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\Common\bin\Debug\net6.0\Common.pdb
+D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\Common\obj\Debug\net6.0\Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\Common\obj\Debug\net6.0\Common.AssemblyInfoInputs.cache
+D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\Common\obj\Debug\net6.0\Common.AssemblyInfo.cs
+D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\Common\obj\Debug\net6.0\Common.csproj.CoreCompileInputs.cache
+D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\Common\obj\Debug\net6.0\Common.dll
+D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\Common\obj\Debug\net6.0\refint\Common.dll
+D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\Common\obj\Debug\net6.0\Common.pdb
+D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\Common\obj\Debug\net6.0\ref\Common.dll

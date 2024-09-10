@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Fd5+PzIr42cl3pzgT3TWNfftdymg8xDxKSVQbtYBGPs=",
+  "Source": "Service.Movie",
+  "BasePath": "_content/Service.Movie",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
