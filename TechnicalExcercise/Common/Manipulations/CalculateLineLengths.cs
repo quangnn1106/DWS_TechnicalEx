@@ -6,7 +6,16 @@ namespace Common.Manipulations
     {
         public string[] Manipulate(string[] lines)
         {
-            return lines.Select(line => $"{line.Length} {line}").ToArray();
+            try
+            {
+                return lines.Select(line => $"{line.Length} {line}").ToArray();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred while calculating line lengths: {ex.Message}");
+                throw;
+            }
         }
     }
 }
