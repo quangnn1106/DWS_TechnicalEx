@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Common.Interface;
 
 namespace Common.Manipulations
 {
@@ -10,12 +6,29 @@ namespace Common.Manipulations
     {
         public async Task<string[]> ReadFileAsync(string filePath)
         {
-            return await File.ReadAllLinesAsync(filePath);
+            try
+            {
+                return await File.ReadAllLinesAsync(filePath);
+            }
+            catch (Exception ex)
+            {
+                // Handle or log the exception as needed
+                Console.WriteLine($"Error reading file: {ex.Message}");
+                return Array.Empty<string>();
+            }
         }
 
         public async Task WriteFileAsync(string filePath, string[] lines)
         {
-            await File.WriteAllLinesAsync(filePath, lines);
+            try
+            {
+                await File.WriteAllLinesAsync(filePath, lines);
+            }
+            catch (Exception ex)
+            {
+                // Handle or log the exception as needed
+                Console.WriteLine($"Error writing file: {ex.Message}");
+            }
         }
     }
 }

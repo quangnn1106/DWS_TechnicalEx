@@ -100,3 +100,4 @@ D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\ManipulateLinesT
 D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\ManipulateLinesTest\bin\Debug\net6.0\CoverletSourceRootsMapping
 D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\ManipulateLinesTest\bin\Debug\net6.0\Common.dll
 D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\ManipulateLinesTest\bin\Debug\net6.0\Common.pdb
+D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\ManipulateLinesTest\obj\Debug\net6.0\ManipulateLinesTest.sourcelink.json

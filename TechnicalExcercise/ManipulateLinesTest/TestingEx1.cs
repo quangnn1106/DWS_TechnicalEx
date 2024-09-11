@@ -1,4 +1,5 @@
 ﻿using Common.Manipulations;
+using Common.Services;
 
 namespace ManipulateLinesTest
 {

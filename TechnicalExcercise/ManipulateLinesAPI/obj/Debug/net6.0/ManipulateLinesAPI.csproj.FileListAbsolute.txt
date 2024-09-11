@@ -32,3 +32,4 @@ D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\ManipulateLinesA
 D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\ManipulateLinesAPI\obj\Debug\net6.0\ref\ManipulateLinesAPI.dll
 D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\ManipulateLinesAPI\bin\Debug\net6.0\Common.dll
 D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\ManipulateLinesAPI\bin\Debug\net6.0\Common.pdb
+D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\ManipulateLinesAPI\obj\Debug\net6.0\ManipulateLinesAPI.sourcelink.json

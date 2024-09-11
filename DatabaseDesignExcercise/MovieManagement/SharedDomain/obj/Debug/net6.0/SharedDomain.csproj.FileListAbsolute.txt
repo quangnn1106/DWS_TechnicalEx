@@ -26,3 +26,4 @@ D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\DatabaseDesignExcercise\MovieManage
 D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\DatabaseDesignExcercise\MovieManagement\SharedDomain\obj\Debug\net6.0\SharedDomain.pdb
 D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\DatabaseDesignExcercise\MovieManagement\SharedDomain\obj\Debug\net6.0\SharedDomain.genruntimeconfig.cache
 D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\DatabaseDesignExcercise\MovieManagement\SharedDomain\obj\Debug\net6.0\ref\SharedDomain.dll
+D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\DatabaseDesignExcercise\MovieManagement\SharedDomain\obj\Debug\net6.0\SharedDomain.sourcelink.json

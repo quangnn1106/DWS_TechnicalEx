@@ -12,3 +12,4 @@ D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\ManipulateLines\
 D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\ManipulateLines\obj\Debug\net6.0\ManipulateLines.pdb
 D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\ManipulateLines\obj\Debug\net6.0\ManipulateLines.genruntimeconfig.cache
 D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\ManipulateLines\obj\Debug\net6.0\ref\ManipulateLines.dll
+D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\ManipulateLines\obj\Debug\net6.0\ManipulateLines.sourcelink.json

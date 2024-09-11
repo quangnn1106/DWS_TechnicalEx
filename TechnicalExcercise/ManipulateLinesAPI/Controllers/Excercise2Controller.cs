@@ -1,6 +1,5 @@
 ﻿using Common;
-using Common.Manipulations;
-using Common.Services;
+using Common.Interface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.OpenApi.Extensions;
 
@@ -10,7 +9,7 @@ namespace ManipulateLinesAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class Excersise2Controller : ControllerBase
+    public class Excercise2Controller : ControllerBase
     {
         private readonly IRandomService _randomService;
         private readonly IManipulationService _manipulationService;
@@ -21,7 +20,7 @@ namespace ManipulateLinesAPI.Controllers
         private readonly string encryptedFile = "./Output/encrypted.txt";
         private readonly string calculateFile = "./Output/calculate.txt";
 
-        public Excersise2Controller(IRandomService randomService, IManipulationService manipulationService, ITextManipulationFactory textManipulationFactory)
+        public Excercise2Controller(IRandomService randomService, IManipulationService manipulationService, ITextManipulationFactory textManipulationFactory)
         {
             _randomService = randomService;
             _manipulationService = manipulationService;

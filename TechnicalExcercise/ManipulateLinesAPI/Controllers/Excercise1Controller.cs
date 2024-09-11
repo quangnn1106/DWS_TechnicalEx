@@ -1,5 +1,4 @@
-﻿using Common.Manipulations;
-using Common.Services;
+﻿using Common.Interface;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,7 +9,7 @@ namespace ManipulateLinesAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class Exercise1Controller : ControllerBase
+    public class Excercise1Controller : ControllerBase
     {
         private readonly ITextManipulationFactory _textManipulationFactory;
         private readonly IManipulationService _manipulationService;
@@ -23,13 +22,13 @@ namespace ManipulateLinesAPI.Controllers
         private readonly string reversedLetterFile = "./Output/reversedLetter.txt";
         private readonly string decryptedFile = "./Output/decrypted.txt";
 
-        public Exercise1Controller(ITextManipulationFactory textManipulationFactory, IManipulationService manipulationService)
+        public Excercise1Controller(ITextManipulationFactory textManipulationFactory, IManipulationService manipulationService)
         {
             _textManipulationFactory = textManipulationFactory;
             _manipulationService = manipulationService;
         }
 
-        [HttpGet("getSortedDIP")]
+        [HttpGet("getSorted")]
         public async Task<IActionResult> GetSortedFile()
         {
             var sortLines = _textManipulationFactory.CreateSortLines();
@@ -43,7 +42,7 @@ namespace ManipulateLinesAPI.Controllers
             return NotFound("Sorted file not found.");
         }
 
-        [HttpGet("getReversedDIP")]
+        [HttpGet("getReversed")]
         public async Task<IActionResult> GetReveredFile()
         {
             var reversedLines = _textManipulationFactory.CreateReverseLines();
@@ -58,7 +57,7 @@ namespace ManipulateLinesAPI.Controllers
             
         }
 
-        [HttpGet("getEncryptedDIP")]
+        [HttpGet("getEncrypted")]
         public async Task<IActionResult> GetEncrytedFile()
         {
             var encryptedLines = _textManipulationFactory.CreateEncryptLines();
@@ -73,7 +72,7 @@ namespace ManipulateLinesAPI.Controllers
 
         }
 
-        [HttpGet("getCalculateDIP")]
+        [HttpGet("getCalculate")]
         public async Task<IActionResult> GetCalculateFile()
         {
             var calculateLines = _textManipulationFactory.CreateCalculateLineLengths();
@@ -88,7 +87,7 @@ namespace ManipulateLinesAPI.Controllers
 
         }
 
-        [HttpGet("getSortedRandomDIP")]
+        [HttpGet("getSortedRandom")]
         public async Task<IActionResult> GetSortedRandomFile()
         {
             var sortedRandomly = _textManipulationFactory.CreateSortLinesRandomly();
@@ -103,7 +102,7 @@ namespace ManipulateLinesAPI.Controllers
 
         }
 
-        [HttpGet("getReversedLetterDIP")]
+        [HttpGet("getReversedLetter")]
         public async Task<IActionResult> GetReversedLetterFile()
         {
             var reversedLetter = _textManipulationFactory.CreateReverseLetter();
@@ -118,7 +117,7 @@ namespace ManipulateLinesAPI.Controllers
 
         }
 
-        [HttpGet("getDecryptedDIP")]
+        [HttpGet("getDecrypted")]
         public async Task<IActionResult> GetDecryptedFile()
         {
             var decryptedLines = _textManipulationFactory.CreateDecryptLines();

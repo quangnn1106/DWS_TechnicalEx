@@ -9,3 +9,4 @@ D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\Common\obj\Debug
 D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\Common\obj\Debug\net6.0\refint\Common.dll
 D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\Common\obj\Debug\net6.0\Common.pdb
 D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\Common\obj\Debug\net6.0\ref\Common.dll
+D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\TechnicalExcercise\Common\obj\Debug\net6.0\Common.sourcelink.json

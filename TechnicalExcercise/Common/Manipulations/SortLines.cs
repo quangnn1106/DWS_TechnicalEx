@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Common.Interface;
 
 namespace Common.Manipulations
 {
@@ -10,7 +6,15 @@ namespace Common.Manipulations
     {
         public string[] Manipulate(string[] lines)
         {
-            return lines.OrderBy(line => line).ToArray();
+            try
+            {
+                return lines.OrderBy(line => line).ToArray();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred while sorting lines: {ex.Message}");
+                throw;
+            }
         }
     }
 }

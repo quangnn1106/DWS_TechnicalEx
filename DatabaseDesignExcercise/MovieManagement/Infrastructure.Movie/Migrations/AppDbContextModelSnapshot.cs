@@ -28,9 +28,6 @@ namespace Infrastructure.Movies.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("AwardActorId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
@@ -46,17 +43,10 @@ namespace Infrastructure.Movies.Migrations
                     b.Property<DateTime>("LastModify")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("MovieActorId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AwardActorId");
-
-                    b.HasIndex("MovieActorId");
 
                     b.ToTable("Actors");
                 });
@@ -65,12 +55,6 @@ namespace Infrastructure.Movies.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("AwardActorId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("AwardMovieId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("CategoryId")
@@ -96,23 +80,19 @@ namespace Infrastructure.Movies.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AwardActorId");
+                    b.HasIndex("CategoryId");
 
-                    b.HasIndex("AwardMovieId");
+                    b.HasIndex("SeasonId");
 
                     b.ToTable("Awards");
                 });
 
             modelBuilder.Entity("SharedDomain.Entities.Movie.AwardActor", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<Guid>("AwardId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("ActorId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("AwardId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedDate")
@@ -121,13 +101,18 @@ namespace Infrastructure.Movies.Migrations
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
                     b.Property<DateTime>("LastModify")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("Id");
+                    b.HasKey("AwardId", "ActorId");
+
+                    b.HasIndex("ActorId");
 
                     b.ToTable("AwardActors");
                 });
@@ -136,9 +121,6 @@ namespace Infrastructure.Movies.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("AwardId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedDate")
@@ -158,18 +140,15 @@ namespace Infrastructure.Movies.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AwardId");
-
                     b.ToTable("AwardCategories");
                 });
 
             modelBuilder.Entity("SharedDomain.Entities.Movie.AwardMovie", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<Guid>("AwardId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("AwardId")
+                    b.Property<Guid>("MovieId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedDate")
@@ -178,16 +157,18 @@ namespace Infrastructure.Movies.Migrations
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
                     b.Property<DateTime>("LastModify")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("MovieId")
-                        .HasColumnType("uniqueidentifier");
+                    b.HasKey("AwardId", "MovieId");
 
-                    b.HasKey("Id");
+                    b.HasIndex("MovieId");
 
                     b.ToTable("AwardMovies");
                 });
@@ -196,9 +177,6 @@ namespace Infrastructure.Movies.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("AwardId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedDate")
@@ -221,8 +199,6 @@ namespace Infrastructure.Movies.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AwardId");
-
                     b.ToTable("AwardSeasons");
                 });
 
@@ -244,15 +220,10 @@ namespace Infrastructure.Movies.Migrations
                     b.Property<DateTime>("LastModify")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("MovieDirectorId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("MovieDirectorId");
 
                     b.ToTable("Directors");
                 });
@@ -275,15 +246,10 @@ namespace Infrastructure.Movies.Migrations
                     b.Property<DateTime>("LastModify")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("MovieGenreId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("MovieGenreId");
 
                     b.ToTable("Genres");
                 });
@@ -292,9 +258,6 @@ namespace Infrastructure.Movies.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("AwardMovieId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedDate")
@@ -309,16 +272,8 @@ namespace Infrastructure.Movies.Migrations
                     b.Property<DateTime>("LastModify")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("MovieActorId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("MovieDirectorId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("MovieGenreId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("YearOfRelease")
@@ -326,21 +281,12 @@ namespace Infrastructure.Movies.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AwardMovieId");
-
-                    b.HasIndex("MovieActorId");
-
-                    b.HasIndex("MovieDirectorId");
-
-                    b.HasIndex("MovieGenreId");
-
                     b.ToTable("Movies");
                 });
 
             modelBuilder.Entity("SharedDomain.Entities.Movie.MovieActor", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<Guid>("MovieId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("ActorId")
@@ -352,24 +298,28 @@ namespace Infrastructure.Movies.Migrations
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
                     b.Property<DateTime>("LastModify")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("MovieId")
-                        .HasColumnType("uniqueidentifier");
+                    b.HasKey("MovieId", "ActorId");
 
-                    b.HasKey("Id");
+                    b.HasIndex("ActorId");
 
                     b.ToTable("MovieActors");
                 });
 
             modelBuilder.Entity("SharedDomain.Entities.Movie.MovieDirector", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<Guid>("MovieId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("DirectorId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedDate")
@@ -378,7 +328,7 @@ namespace Infrastructure.Movies.Migrations
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("DirectorId")
+                    b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("IsDeleted")
@@ -387,18 +337,19 @@ namespace Infrastructure.Movies.Migrations
                     b.Property<DateTime>("LastModify")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("MovieId")
-                        .HasColumnType("uniqueidentifier");
+                    b.HasKey("MovieId", "DirectorId");
 
-                    b.HasKey("Id");
+                    b.HasIndex("DirectorId");
 
                     b.ToTable("MovieDirectors");
                 });
 
             modelBuilder.Entity("SharedDomain.Entities.Movie.MovieGenre", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<Guid>("MovieId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("GenreId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedDate")
@@ -407,7 +358,7 @@ namespace Infrastructure.Movies.Migrations
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("GenreId")
+                    b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("IsDeleted")
@@ -416,123 +367,160 @@ namespace Infrastructure.Movies.Migrations
                     b.Property<DateTime>("LastModify")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("MovieId")
-                        .HasColumnType("uniqueidentifier");
+                    b.HasKey("MovieId", "GenreId");
 
-                    b.HasKey("Id");
+                    b.HasIndex("GenreId");
 
                     b.ToTable("MovieGenres");
                 });
 
-            modelBuilder.Entity("SharedDomain.Entities.Movie.Actor", b =>
-                {
-                    b.HasOne("SharedDomain.Entities.Movie.AwardActor", null)
-                        .WithMany("Actors")
-                        .HasForeignKey("AwardActorId");
-
-                    b.HasOne("SharedDomain.Entities.Movie.MovieActor", null)
-                        .WithMany("Actors")
-                        .HasForeignKey("MovieActorId");
-                });
-
             modelBuilder.Entity("SharedDomain.Entities.Movie.Award", b =>
                 {
-                    b.HasOne("SharedDomain.Entities.Movie.AwardActor", null)
-                        .WithMany("Awards")
-                        .HasForeignKey("AwardActorId");
+                    b.HasOne("SharedDomain.Entities.Movie.AwardCategories", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("SharedDomain.Entities.Movie.AwardMovie", null)
-                        .WithMany("Awards")
-                        .HasForeignKey("AwardMovieId");
-                });
+                    b.HasOne("SharedDomain.Entities.Movie.AwardSeasons", "Season")
+                        .WithMany()
+                        .HasForeignKey("SeasonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-            modelBuilder.Entity("SharedDomain.Entities.Movie.AwardCategories", b =>
-                {
-                    b.HasOne("SharedDomain.Entities.Movie.Award", null)
-                        .WithMany("Categories")
-                        .HasForeignKey("AwardId");
-                });
+                    b.Navigation("Category");
 
-            modelBuilder.Entity("SharedDomain.Entities.Movie.AwardSeasons", b =>
-                {
-                    b.HasOne("SharedDomain.Entities.Movie.Award", null)
-                        .WithMany("Seasons")
-                        .HasForeignKey("AwardId");
-                });
-
-            modelBuilder.Entity("SharedDomain.Entities.Movie.Director", b =>
-                {
-                    b.HasOne("SharedDomain.Entities.Movie.MovieDirector", null)
-                        .WithMany("Directors")
-                        .HasForeignKey("MovieDirectorId");
-                });
-
-            modelBuilder.Entity("SharedDomain.Entities.Movie.Genre", b =>
-                {
-                    b.HasOne("SharedDomain.Entities.Movie.MovieGenre", null)
-                        .WithMany("Genres")
-                        .HasForeignKey("MovieGenreId");
-                });
-
-            modelBuilder.Entity("SharedDomain.Entities.Movie.Movie", b =>
-                {
-                    b.HasOne("SharedDomain.Entities.Movie.AwardMovie", null)
-                        .WithMany("Movies")
-                        .HasForeignKey("AwardMovieId");
-
-                    b.HasOne("SharedDomain.Entities.Movie.MovieActor", null)
-                        .WithMany("Movies")
-                        .HasForeignKey("MovieActorId");
-
-                    b.HasOne("SharedDomain.Entities.Movie.MovieDirector", null)
-                        .WithMany("Movies")
-                        .HasForeignKey("MovieDirectorId");
-
-                    b.HasOne("SharedDomain.Entities.Movie.MovieGenre", null)
-                        .WithMany("Movies")
-                        .HasForeignKey("MovieGenreId");
-                });
-
-            modelBuilder.Entity("SharedDomain.Entities.Movie.Award", b =>
-                {
-                    b.Navigation("Categories");
-
-                    b.Navigation("Seasons");
+                    b.Navigation("Season");
                 });
 
             modelBuilder.Entity("SharedDomain.Entities.Movie.AwardActor", b =>
                 {
-                    b.Navigation("Actors");
+                    b.HasOne("SharedDomain.Entities.Movie.Actor", "Actor")
+                        .WithMany("AwardActors")
+                        .HasForeignKey("ActorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Awards");
+                    b.HasOne("SharedDomain.Entities.Movie.Award", "Award")
+                        .WithMany("AwardActors")
+                        .HasForeignKey("AwardId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Actor");
+
+                    b.Navigation("Award");
                 });
 
             modelBuilder.Entity("SharedDomain.Entities.Movie.AwardMovie", b =>
                 {
-                    b.Navigation("Awards");
+                    b.HasOne("SharedDomain.Entities.Movie.Award", "Award")
+                        .WithMany("AwardMovies")
+                        .HasForeignKey("AwardId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Movies");
+                    b.HasOne("SharedDomain.Entities.Movie.Movie", "Movie")
+                        .WithMany("AwardMovies")
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Award");
+
+                    b.Navigation("Movie");
                 });
 
             modelBuilder.Entity("SharedDomain.Entities.Movie.MovieActor", b =>
                 {
-                    b.Navigation("Actors");
+                    b.HasOne("SharedDomain.Entities.Movie.Actor", "Actor")
+                        .WithMany("MovieActors")
+                        .HasForeignKey("ActorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Movies");
+                    b.HasOne("SharedDomain.Entities.Movie.Movie", "Movie")
+                        .WithMany("MovieActors")
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Actor");
+
+                    b.Navigation("Movie");
                 });
 
             modelBuilder.Entity("SharedDomain.Entities.Movie.MovieDirector", b =>
                 {
-                    b.Navigation("Directors");
+                    b.HasOne("SharedDomain.Entities.Movie.Director", "Director")
+                        .WithMany("MovieDirectors")
+                        .HasForeignKey("DirectorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Movies");
+                    b.HasOne("SharedDomain.Entities.Movie.Movie", "Movie")
+                        .WithMany("MovieDirectors")
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Director");
+
+                    b.Navigation("Movie");
                 });
 
             modelBuilder.Entity("SharedDomain.Entities.Movie.MovieGenre", b =>
                 {
-                    b.Navigation("Genres");
+                    b.HasOne("SharedDomain.Entities.Movie.Genre", "Genre")
+                        .WithMany("MovieGenres")
+                        .HasForeignKey("GenreId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Movies");
+                    b.HasOne("SharedDomain.Entities.Movie.Movie", "Movie")
+                        .WithMany("MovieGenres")
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Genre");
+
+                    b.Navigation("Movie");
+                });
+
+            modelBuilder.Entity("SharedDomain.Entities.Movie.Actor", b =>
+                {
+                    b.Navigation("AwardActors");
+
+                    b.Navigation("MovieActors");
+                });
+
+            modelBuilder.Entity("SharedDomain.Entities.Movie.Award", b =>
+                {
+                    b.Navigation("AwardActors");
+
+                    b.Navigation("AwardMovies");
+                });
+
+            modelBuilder.Entity("SharedDomain.Entities.Movie.Director", b =>
+                {
+                    b.Navigation("MovieDirectors");
+                });
+
+            modelBuilder.Entity("SharedDomain.Entities.Movie.Genre", b =>
+                {
+                    b.Navigation("MovieGenres");
+                });
+
+            modelBuilder.Entity("SharedDomain.Entities.Movie.Movie", b =>
+                {
+                    b.Navigation("AwardMovies");
+
+                    b.Navigation("MovieActors");
+
+                    b.Navigation("MovieDirectors");
+
+                    b.Navigation("MovieGenres");
                 });
 #pragma warning restore 612, 618
         }

@@ -180,3 +180,4 @@ D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\DatabaseDesignExcercise\MovieManage
 D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\DatabaseDesignExcercise\MovieManagement\Service.Movie\obj\Debug\net6.0\Service.Movie.pdb
 D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\DatabaseDesignExcercise\MovieManagement\Service.Movie\obj\Debug\net6.0\Service.Movie.genruntimeconfig.cache
 D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\DatabaseDesignExcercise\MovieManagement\Service.Movie\obj\Debug\net6.0\ref\Service.Movie.dll
+D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\DatabaseDesignExcercise\MovieManagement\Service.Movie\obj\Debug\net6.0\Service.Movie.sourcelink.json

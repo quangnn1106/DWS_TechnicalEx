@@ -28,3 +28,4 @@ D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\DatabaseDesignExcercise\MovieManage
 D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\DatabaseDesignExcercise\MovieManagement\Infrastructure.Movie\obj\Debug\net6.0\refint\Infrastructure.Movies.dll
 D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\DatabaseDesignExcercise\MovieManagement\Infrastructure.Movie\obj\Debug\net6.0\Infrastructure.Movies.pdb
 D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\DatabaseDesignExcercise\MovieManagement\Infrastructure.Movie\obj\Debug\net6.0\ref\Infrastructure.Movies.dll
+D:\DWS\DWSTechinicalExercise_NguyenNhatQuang\DatabaseDesignExcercise\MovieManagement\Infrastructure.Movie\obj\Debug\net6.0\Infrastructure.Movies.sourcelink.json
