@@ -9,6 +9,6 @@ namespace SharedDomain.Entities.Base
     public interface ITraceableItem : ISoftDeletable
     {
         public DateTime CreatedDate { get; set; }
-        public DateTime LastModify { get; set; }
+        public DateTime UpdatedDate { get; set; }
     }
 }

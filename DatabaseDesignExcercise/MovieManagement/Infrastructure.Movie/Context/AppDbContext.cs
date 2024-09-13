@@ -28,7 +28,6 @@ namespace Infrastructure.Movies.Context
         public DbSet<AwardMovie> AwardMovies { get; set; }
 
         public DbSet<MovieActor> MovieActors { get; set; }
-        public DbSet<MovieDirector> MovieDirectors { get; set; }
         public DbSet<MovieGenre> MovieGenres { get; set; }
 
 
@@ -48,17 +47,11 @@ namespace Infrastructure.Movies.Context
                 .WithMany(a => a.MovieActors)
                 .HasForeignKey(ma => ma.ActorId);
 
-            // Movie-Director many-to-many relationship
-            modelBuilder.Entity<MovieDirector>()
-                .HasKey(md => new { md.MovieId, md.DirectorId });
-            modelBuilder.Entity<MovieDirector>()
-                .HasOne(md => md.Movie)
-                .WithMany(m => m.MovieDirectors)
-                .HasForeignKey(md => md.MovieId);
-            modelBuilder.Entity<MovieDirector>()
-                .HasOne(md => md.Director)
-                .WithMany(d => d.MovieDirectors)
-                .HasForeignKey(md => md.DirectorId);
+            // Director one-to-many relationship
+            modelBuilder.Entity<Movie>()
+                .HasOne(m => m.Director)
+                .WithMany(d => d.Movies)
+                .HasForeignKey(m => m.DirectorId);
 
             // Movie-Genre many-to-many relationship
             modelBuilder.Entity<MovieGenre>()

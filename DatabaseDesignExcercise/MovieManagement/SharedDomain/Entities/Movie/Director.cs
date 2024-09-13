@@ -2,9 +2,9 @@
 
 namespace SharedDomain.Entities.Movie
 {
-    public class Director: BaseEntity 
+    public class Director : BaseEntity
     {
         public string? Name { get; set; }
-        public ICollection<MovieDirector>? MovieDirectors { get; set; }
+        public ICollection<Movie>? Movies { get; set; }
     }
 }

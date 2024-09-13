@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+
 
 namespace SharedDomain.Entities.Base
 {
@@ -12,9 +8,24 @@ namespace SharedDomain.Entities.Base
         [Key]
         public Guid Id { get; set; } = Guid.NewGuid();
         public DateTime CreatedDate { get; set; } = DateTime.Now;
-        public DateTime LastModify { get; set; } = DateTime.Now;
+        public DateTime UpdatedDate { get; set; } = DateTime.Now;
         public bool IsDeleted { get; set; } = false;
-        public DateTime? DeletedDate { get; set; }
+        private DateTime? _deletedDate;
+        public DateTime? DeletedDate
+        {
+            get
+            {
+                if (IsDeleted && !_deletedDate.HasValue)
+                {
+                    _deletedDate = UpdatedDate;
+                }
+                return _deletedDate;
+            }
+            set
+            {
+                _deletedDate = value;
+            }
+        }
 
     }
 }

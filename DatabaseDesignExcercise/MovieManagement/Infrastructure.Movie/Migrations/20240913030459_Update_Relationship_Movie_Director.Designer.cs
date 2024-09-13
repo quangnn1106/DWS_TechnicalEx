@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Movies.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240911042441_UpdateRelationShip")]
-    partial class UpdateRelationShip
+    [Migration("20240913030459_Update_Relationship_Movie_Director")]
+    partial class Update_Relationship_Movie_Director
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,11 +43,12 @@ namespace Infrastructure.Movies.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("LastModify")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -72,14 +73,15 @@ namespace Infrastructure.Movies.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("LastModify")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<Guid>("SeasonId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -97,21 +99,6 @@ namespace Infrastructure.Movies.Migrations
 
                     b.Property<Guid>("ActorId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("Id")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("LastModify")
-                        .HasColumnType("datetime2");
 
                     b.HasKey("AwardId", "ActorId");
 
@@ -135,11 +122,11 @@ namespace Infrastructure.Movies.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("LastModify")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -153,21 +140,6 @@ namespace Infrastructure.Movies.Migrations
 
                     b.Property<Guid>("MovieId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("Id")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("LastModify")
-                        .HasColumnType("datetime2");
 
                     b.HasKey("AwardId", "MovieId");
 
@@ -191,11 +163,11 @@ namespace Infrastructure.Movies.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("LastModify")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("Year")
                         .HasColumnType("datetime2");
@@ -220,11 +192,11 @@ namespace Infrastructure.Movies.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("LastModify")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -246,11 +218,11 @@ namespace Infrastructure.Movies.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("LastModify")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -269,20 +241,24 @@ namespace Infrastructure.Movies.Migrations
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid>("DirectorId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("LastModify")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("YearOfRelease")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("DirectorId");
 
                     b.ToTable("Movies");
                 });
@@ -295,56 +271,11 @@ namespace Infrastructure.Movies.Migrations
                     b.Property<Guid>("ActorId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("Id")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("LastModify")
-                        .HasColumnType("datetime2");
-
                     b.HasKey("MovieId", "ActorId");
 
                     b.HasIndex("ActorId");
 
                     b.ToTable("MovieActors");
-                });
-
-            modelBuilder.Entity("SharedDomain.Entities.Movie.MovieDirector", b =>
-                {
-                    b.Property<Guid>("MovieId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("DirectorId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("Id")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("LastModify")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("MovieId", "DirectorId");
-
-                    b.HasIndex("DirectorId");
-
-                    b.ToTable("MovieDirectors");
                 });
 
             modelBuilder.Entity("SharedDomain.Entities.Movie.MovieGenre", b =>
@@ -354,21 +285,6 @@ namespace Infrastructure.Movies.Migrations
 
                     b.Property<Guid>("GenreId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("Id")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("LastModify")
-                        .HasColumnType("datetime2");
 
                     b.HasKey("MovieId", "GenreId");
 
@@ -434,6 +350,17 @@ namespace Infrastructure.Movies.Migrations
                     b.Navigation("Movie");
                 });
 
+            modelBuilder.Entity("SharedDomain.Entities.Movie.Movie", b =>
+                {
+                    b.HasOne("SharedDomain.Entities.Movie.Director", "Director")
+                        .WithMany("Movies")
+                        .HasForeignKey("DirectorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Director");
+                });
+
             modelBuilder.Entity("SharedDomain.Entities.Movie.MovieActor", b =>
                 {
                     b.HasOne("SharedDomain.Entities.Movie.Actor", "Actor")
@@ -449,25 +376,6 @@ namespace Infrastructure.Movies.Migrations
                         .IsRequired();
 
                     b.Navigation("Actor");
-
-                    b.Navigation("Movie");
-                });
-
-            modelBuilder.Entity("SharedDomain.Entities.Movie.MovieDirector", b =>
-                {
-                    b.HasOne("SharedDomain.Entities.Movie.Director", "Director")
-                        .WithMany("MovieDirectors")
-                        .HasForeignKey("DirectorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("SharedDomain.Entities.Movie.Movie", "Movie")
-                        .WithMany("MovieDirectors")
-                        .HasForeignKey("MovieId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Director");
 
                     b.Navigation("Movie");
                 });
@@ -507,7 +415,7 @@ namespace Infrastructure.Movies.Migrations
 
             modelBuilder.Entity("SharedDomain.Entities.Movie.Director", b =>
                 {
-                    b.Navigation("MovieDirectors");
+                    b.Navigation("Movies");
                 });
 
             modelBuilder.Entity("SharedDomain.Entities.Movie.Genre", b =>
@@ -520,8 +428,6 @@ namespace Infrastructure.Movies.Migrations
                     b.Navigation("AwardMovies");
 
                     b.Navigation("MovieActors");
-
-                    b.Navigation("MovieDirectors");
 
                     b.Navigation("MovieGenres");
                 });

@@ -4,6 +4,7 @@ using Infrastructure.Movies.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Movies.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240912084022_InitDb")]
+    partial class InitDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -238,9 +241,6 @@ namespace Infrastructure.Movies.Migrations
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("DirectorId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -254,8 +254,6 @@ namespace Infrastructure.Movies.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("DirectorId");
 
                     b.ToTable("Movies");
                 });
@@ -273,6 +271,21 @@ namespace Infrastructure.Movies.Migrations
                     b.HasIndex("ActorId");
 
                     b.ToTable("MovieActors");
+                });
+
+            modelBuilder.Entity("SharedDomain.Entities.Movie.MovieDirector", b =>
+                {
+                    b.Property<Guid>("MovieId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("DirectorId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("MovieId", "DirectorId");
+
+                    b.HasIndex("DirectorId");
+
+                    b.ToTable("MovieDirectors");
                 });
 
             modelBuilder.Entity("SharedDomain.Entities.Movie.MovieGenre", b =>
@@ -347,17 +360,6 @@ namespace Infrastructure.Movies.Migrations
                     b.Navigation("Movie");
                 });
 
-            modelBuilder.Entity("SharedDomain.Entities.Movie.Movie", b =>
-                {
-                    b.HasOne("SharedDomain.Entities.Movie.Director", "Director")
-                        .WithMany("Movies")
-                        .HasForeignKey("DirectorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Director");
-                });
-
             modelBuilder.Entity("SharedDomain.Entities.Movie.MovieActor", b =>
                 {
                     b.HasOne("SharedDomain.Entities.Movie.Actor", "Actor")
@@ -373,6 +375,25 @@ namespace Infrastructure.Movies.Migrations
                         .IsRequired();
 
                     b.Navigation("Actor");
+
+                    b.Navigation("Movie");
+                });
+
+            modelBuilder.Entity("SharedDomain.Entities.Movie.MovieDirector", b =>
+                {
+                    b.HasOne("SharedDomain.Entities.Movie.Director", "Director")
+                        .WithMany("MovieDirectors")
+                        .HasForeignKey("DirectorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SharedDomain.Entities.Movie.Movie", "Movie")
+                        .WithMany("MovieDirectors")
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Director");
 
                     b.Navigation("Movie");
                 });
@@ -412,7 +433,7 @@ namespace Infrastructure.Movies.Migrations
 
             modelBuilder.Entity("SharedDomain.Entities.Movie.Director", b =>
                 {
-                    b.Navigation("Movies");
+                    b.Navigation("MovieDirectors");
                 });
 
             modelBuilder.Entity("SharedDomain.Entities.Movie.Genre", b =>
@@ -425,6 +446,8 @@ namespace Infrastructure.Movies.Migrations
                     b.Navigation("AwardMovies");
 
                     b.Navigation("MovieActors");
+
+                    b.Navigation("MovieDirectors");
 
                     b.Navigation("MovieGenres");
                 });
